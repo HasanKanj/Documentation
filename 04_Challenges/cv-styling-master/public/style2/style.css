@@ -100,7 +100,7 @@
                     float: right;
                     margin-left: -20px;
             }
-            #competencies > div.skills.skills-secondary > div:nth-child(3) > span::after{
+             #competencies > div.skills.skills-secondary > div:nth-child(3) > span::after{
                     content: "\2605 \2605 \2605 \2605";
                     float: right;
                     margin-left: -28px;
