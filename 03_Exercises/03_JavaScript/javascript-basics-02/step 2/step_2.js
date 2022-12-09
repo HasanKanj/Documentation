@@ -1,4 +1,5 @@
-var x = document.querySelector('input');
-x.onblur = function(){
-    alert("Thank you for participating!")
-}
+var x =document.getElementById("name") 
+
+   x.addEventListener("blur", function(){
+    alert("Thank you for participating")
+  });
