@@ -6,5 +6,14 @@
     6. UPDATE students SET Points = 350 WHERE name = 'Basma';
     7. UPDATE students SET Points = 150 WHERE name = 'Alex';
     
+       CREATE TABLE graduates(
+       ID INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+       NAME text NOT NULL UNIQUE,
+       Age int,
+       Gender text,
+       Points int,
+       Graduation text  );
 
-
+    10  INSERT INTO graduates (ID,name,Age,Gender,Points) VALUES (4,'LAyal',18,'F',350);
+    11   UPDATE graduates set Graduation = '08/09/2018' WHERE name = 'Layal'
+    12   delete from students where id= '4'
