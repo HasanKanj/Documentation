@@ -37,6 +37,11 @@ function onDataReceived(text) {
   if (text === 'quit\n') {
     quit();
   }
+  
+  else if (text === 'exit\n' ) {
+    exit();
+  }
+
   else if(text === 'hello\n'){
     hello();
   }
@@ -75,6 +80,11 @@ function hello(){
  */
 function quit(){
   console.log('Quitting now, goodbye!')
+  process.exit();
+}
+
+function exit(){
+  console.log('Exitting now, goodbye!')
   process.exit();
 }
 
