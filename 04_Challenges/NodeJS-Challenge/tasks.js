@@ -46,7 +46,7 @@ function onDataReceived(text) {
     hello();
   }
 
-  else if(text === 'help\n'){
+   else if(text === 'help\n'){
     help();
   }
 
