@@ -67,15 +67,15 @@ else if (text.slice(0,3)=== 'add'){
  }
  
  
- else if (text.slice(0,6)=== 'remove'){ //should remove the Lasr element of the list
+ else if (text.slice(0,6)=== 'remove'){
   remove(text.trim().substring(7))
 }
 
-else if (text.slice(0,8)=== 'remove 1'){  //should remove the First element of the list
+else if (text.slice(0,8)=== 'remove 1'){
   remove1(text.trim().substring(9))
 }
 
-else if (text.slice(0,8)=== 'remove 2'){ //should remove the Second element of the list
+else if (text.slice(0,8)=== 'remove 2'){ 
   remove1(text.trim().substring(9))
 }
 
@@ -120,22 +120,23 @@ else if (text.slice(0,8)=== 'remove 2'){ //should remove the Second element of t
   }
   
   function help(){
-  console.log('\nType `hello to greet our app \n' + 'Type `quit to exit our app \n' + 'Type `exit to exit our app \n')
+  console.log('\nType `hello to greet our app \n' + 'Type `quit to exit our app \n' + 'Type `exit to exit our app \n'+
+  +'Type List to check all the tasks in the list \n'+ 'Type remove to remove the Last element of the list\n' + 'Type remove 1 to remove the First element of the list\n' + 'Type remove 2 to remove the Second element of the list\n')
   } 
 
-  function add(x) {
+   function add(x) {
     lists.push(x);
   }
 
-  function remove(){
+   function remove(){
     lists.splice(-1,1);
   }
 
-  function remove1(){
+   function remove1(){
     lists.splice(0,1);
   }
 
-  function remove2(){
+   function remove2(){
     lists.splice(1,1);
   }
 
