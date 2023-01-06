@@ -67,16 +67,16 @@ else if (text.slice(0,3)=== 'add'){
  }
  
  
- else if (text.slice(0,6)=== 'remove'){
-  remove(text.trim().substring(7))
+ else if (text.substring(0,6) === 'remove'){
+  remove(text.replace("\n","").substring(6))
 }
 
-else if (text.slice(0,8)=== 'remove 1'){
-  remove1(text.trim().substring(9))
+else if (text.substring(0,8) === 'remove 1'){
+  remove1(text.replace("\n","").substring(8))
 }
 
-else if (text.slice(0,8)=== 'remove 2'){ 
-  remove1(text.trim().substring(9))
+else if (text === 'remove 2\n'){ 
+  remove2(text.replace("\n","").substring(8))
 }
 
   else {
@@ -129,7 +129,7 @@ else if (text.slice(0,8)=== 'remove 2'){
   }
 
    function remove(){
-    lists.splice(-1,1);
+    lists.splice(-1);
   }
 
    function remove1(){
