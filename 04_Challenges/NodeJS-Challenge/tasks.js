@@ -33,23 +33,32 @@ function startApp(name){
   * @returns {void}
   */
   function onDataReceived(text) {
-  if (text === 'quit\n') {
+  
+    if (text === 'quit\n') {
   quit();
   }
+  
   else if (text === 'exit\n' ) {
   exit();
   }
+  
   else if (text.substring(0, 5) === "hello") {
   hello(text.replace("\n", "").substring(6));
-  }
+                             }
+
   else if(text === 'hello\n'){
   hello();
-  }
+                             }
   
-  else if(text === 'help\n'){
+  else if(text === 'list\n') {
+    list();
+                             }
+
+  else if(text === 'help\n') {
   help();
-  }
+                             }
   
+ 
   else{
   unknownCommand(text);
   }
@@ -94,6 +103,15 @@ function startApp(name){
   console.log('\nType `hello to greet our app \n' + 'Type `quit to exit our app \n' + 'Type `exit to exit our app \n')
   }
   
+ /*
+     Lists all the tasks inside lists
+ */
+  function list(){
+    let lists = ['Merry christmas', 'Happy place', 'Happy new year'];
+    for (let i  =0; i < lists.length; i++){
+      console.log(i + '.' +lists[i])
+    }
+  }
   // The following line starts the application
   startApp("Hasan Kanj")
   
