@@ -65,6 +65,20 @@ function startApp(name){
 else if (text.slice(0,3)=== 'add'){
   add(text.slice(4,text.length).replace('\n',''));
  }
+ 
+ 
+ else if (text.slice(0,6)=== 'remove'){ //should remove the Lasr element of the list
+  remove(text.trim().substring(7))
+}
+
+else if (text.slice(0,8)=== 'remove 1'){  //should remove the First element of the list
+  remove1(text.trim().substring(9))
+}
+
+else if (text.slice(0,8)=== 'remove 2'){ //should remove the Second element of the list
+  remove1(text.trim().substring(9))
+}
+
   else {
   unknownCommand(text);
   }
@@ -110,9 +124,21 @@ else if (text.slice(0,3)=== 'add'){
   } 
 
   function add(x) {
-   
     lists.push(x);
   }
+
+  function remove(){
+    lists.splice(-1,1);
+  }
+
+  function remove1(){
+    lists.splice(0,1);
+  }
+
+  function remove2(){
+    lists.splice(1,1);
+  }
+
   let lists = ['Merry christmas', 'Happy place', 'Happy new year'];
 
  /*
