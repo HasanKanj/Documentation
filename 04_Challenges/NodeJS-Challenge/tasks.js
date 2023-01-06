@@ -64,7 +64,7 @@ function startApp(name){
 
 else if (text.slice(0,3)=== 'add'){
   add(text.slice(4,text.length).replace('\n',''));
-                                  }
+ }
   else {
   unknownCommand(text);
   }
@@ -110,10 +110,8 @@ else if (text.slice(0,3)=== 'add'){
   } 
 
   function add(x) {
-    let task = {
-      x: x,
-    };
-    lists.push(task);
+   
+    lists.push(x);
   }
   let lists = ['Merry christmas', 'Happy place', 'Happy new year'];
 
