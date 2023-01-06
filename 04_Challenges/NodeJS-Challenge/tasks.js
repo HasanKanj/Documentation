@@ -58,11 +58,17 @@ function startApp(name){
   help();
                              }
   
- 
-  else{
+  else if (text === "add\n") {
+  console.log("Error nothing after add command!");
+                             }
+
+else if (text.slice(0,3)=== 'add'){
+  add(text.slice(4,text.length).replace('\n',''));
+                                  }
+  else {
   unknownCommand(text);
   }
-  }
+   }
   
   /**
   * prints "unknown command"
@@ -101,13 +107,20 @@ function startApp(name){
   
   function help(){
   console.log('\nType `hello to greet our app \n' + 'Type `quit to exit our app \n' + 'Type `exit to exit our app \n')
+  } 
+
+  function add(x) {
+    let task = {
+      x: x,
+    };
+    lists.push(task);
   }
-  
+  let lists = ['Merry christmas', 'Happy place', 'Happy new year'];
+
  /*
      Lists all the tasks inside lists
  */
   function list(){
-    let lists = ['Merry christmas', 'Happy place', 'Happy new year'];
     for (let i  =0; i < lists.length; i++){
       console.log(i + '.' +lists[i])
     }
