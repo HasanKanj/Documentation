@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+
 const movies = [
     { title: 'Jaws', year: 1975, rating: 8 },
     { title: 'Avatar', year: 2009, rating: 7.8 },
@@ -64,7 +65,7 @@ app.get('/time', (req, res) => {
     }
   })
 
-  
+
 // Sort movies by Date
 const sortedMoviesByDate = movies.sort((a, b) => a.year - b.year)
 
@@ -78,6 +79,19 @@ const sortedMoviesByTitle = movies.sort((a, b) => {
   return 0
 })
 
+
+app.get('/movies/add', (req, res) => {
+    const title = req.query.title
+    const year = req.query.year
+    const rating = req.query.rating || 4
+    if (!title || !year || year.length !== 4 || isNaN(year)) {
+      res.status(403).json({ status: 403, error: true, message: 'You cannot create a movie without providing a title and a year' })
+    } else {
+      const newMovie = { title, year, rating }
+      movies.push(newMovie)
+      res.json({ status: 200, data: movies })
+    }
+  })
 
 app.get('/movies/read/by-date', (req, res) => {
   res.json({ status: 200, data: sortedMoviesByDate })
