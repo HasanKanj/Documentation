@@ -104,7 +104,23 @@ app.get('/movies/add', (req, res) => {
     }
   })
 
-  
+    // Update movie by ID
+
+    app.patch('/movies/:id', (req, res) => {
+    const id = req.params.id
+    const movieIndex = movies.findIndex(movie => movie.id === id)
+    if (movieIndex === -1) {
+      res.status(404).json({ status: 404, error: true, message: `The movie ${id} does not exist` })
+    } else {
+      const updatedMovie = { ...movies[movieIndex] }
+      if (req.body.title) updatedMovie.title = req.body.title
+      if (req.body.rating) updatedMovie.rating = req.body.rating
+      if (req.body.year) updatedMovie.year = req.body.year
+      movies[movieIndex] = updatedMovie
+      res.json({ status: 200, data: movies })
+    }
+  })
+
 app.get('/movies/read/by-date', (req, res) => {
   res.json({ status: 200, data: sortedMoviesByDate })
 })
