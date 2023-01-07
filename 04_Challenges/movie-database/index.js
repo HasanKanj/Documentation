@@ -93,6 +93,18 @@ app.get('/movies/add', (req, res) => {
     }
   })
 
+  app.get('/movies/delete/:id', (req, res) => {
+    const id = req.params.id
+    const movieIndex = movies.findIndex(movie => movie.id === id)
+    if (movieIndex === -1) {
+      res.status(404).json({ status: 404, error: true, message: `The movie ${id} does not exist` })
+    } else {
+      movies.splice(movieIndex, 1)
+      res.json({ status: 200, data: movies })
+    }
+  })
+
+  
 app.get('/movies/read/by-date', (req, res) => {
   res.json({ status: 200, data: sortedMoviesByDate })
 })
