@@ -51,10 +51,10 @@ app.get('/time', (req, res) => {
   })
   
   app.get('/movies/read', (req, res) => {
-    res.json({ status: 200, data: movies })
+    res.send({ status: 200, data: movies })
   })
 
-  
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
