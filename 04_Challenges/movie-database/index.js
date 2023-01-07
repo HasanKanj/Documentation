@@ -1,5 +1,11 @@
 const express = require('express');
 const app = express();
+const movies = [
+    { title: 'Jaws', year: 1975, rating: 8 },
+    { title: 'Avatar', year: 2009, rating: 7.8 },
+    { title: 'Brazil', year: 1985, rating: 8 },
+    { title: 'الإرهاب والكباب‎', year: 1992, rating: 6.2 }
+]
 
 app.get('/', (req, res) => {
   res.send('ok');
@@ -27,6 +33,27 @@ app.get('/time', (req, res) => {
       res.json({status: 500, error: true, message: 'you have to provide a search' });
     }
   });
+  
+  app.post('/movies/create', (req, res) => {
+    res.send('Movie added')
+  })
+  
+  app.get('/movies/read', (req, res) => {
+    res.send('Movies retrieved')
+  })
+  
+  app.put('/movies/update', (req, res) => {
+    res.send('Movie updated')
+  })
+  
+  app.delete('/movies/delete', (req, res) => {
+    res.send('Movie deleted')
+  })
+  
+  app.get('/movies/read', (req, res) => {
+    res.json({ status: 200, data: movies })
+  })
+
   
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
