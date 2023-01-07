@@ -53,6 +53,18 @@ app.get('/time', (req, res) => {
   app.get('/movies/read', (req, res) => {
     res.send({ status: 200, data: movies })
   })
+
+  app.get('/movies/read/id/:id', (req, res) => {
+    const id = req.params.id
+    const movie = movies.find(movie => movie.id === id)
+    if (movie) {
+      res.json({ status: 200, data: movie })
+    } else {
+      res.status(404).json({ status: 404, error: true, message: `The movie ${id} does not exist` })
+    }
+  })
+
+  
 // Sort movies by Date
 const sortedMoviesByDate = movies.sort((a, b) => a.year - b.year)
 
