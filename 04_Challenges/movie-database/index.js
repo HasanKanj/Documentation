@@ -53,7 +53,33 @@ app.get('/time', (req, res) => {
   app.get('/movies/read', (req, res) => {
     res.send({ status: 200, data: movies })
   })
+// Sort movies by Date
+const sortedMoviesByDate = movies.sort((a, b) => a.year - b.year)
 
+// Sort movies by rating
+const sortedMoviesByRating = movies.sort((a, b) => b.rating - a.rating)
+
+// Sort movies by title
+const sortedMoviesByTitle = movies.sort((a, b) => {
+  if (a.title < b.title) return -1
+  if (a.title > b.title) return 1
+  return 0
+})
+
+
+app.get('/movies/read/by-date', (req, res) => {
+  res.json({ status: 200, data: sortedMoviesByDate })
+})
+
+
+app.get('/movies/read/by-rating', (req, res) => {
+  res.json({ status: 200, data: sortedMoviesByRating })
+})
+
+/
+app.get('/movies/read/by-title', (req, res) => {
+  res.json({ status: 200, data: sortedMoviesByTitle })
+})
 
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
