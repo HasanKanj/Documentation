@@ -65,6 +65,33 @@ app.get('/time', (req, res) => {
     }
   })
 
+  app.get('/movies', (req, res) => {
+    res.json(movies);
+  });
+
+  app.post('/movies', (req, res) => {
+    const newMovie = req.body;
+    movies.push(newMovie);
+    res.json(newMovie);
+  });
+  
+  app.put('/movies/:title', (req, res) => {
+    const movieTitle = req.params.title;
+    const updatedMovie = req.body;
+    movies = movies.map(movie => {
+      if (movie.title === movieTitle) {
+        return updatedMovie;
+      }
+      return movie;
+    });
+    res.json(updatedMovie);
+  });
+  
+  app.delete('/movies/:title', (req, res) => {
+    const movieTitle = req.params.title;
+    movies = movies.filter(movie => movie.title !== movieTitle);
+    res.sendStatus(204);
+  });
 
 // Sort movies by Date
 const sortedMoviesByDate = movies.sort((a, b) => a.year - b.year)
@@ -120,6 +147,8 @@ app.get('/movies/add', (req, res) => {
       res.json({ status: 200, data: movies })
     }
   })
+
+  
 
 app.get('/movies/read/by-date', (req, res) => {
   res.json({ status: 200, data: sortedMoviesByDate })
