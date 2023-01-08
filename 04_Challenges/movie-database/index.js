@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const MongoClient= require('mongodb').MongoClient;
+const bodyParser= require('body-parser');
 
 const movies = [
     { title: 'Jaws', year: 1975, rating: 8 },
